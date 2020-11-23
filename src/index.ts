@@ -1,54 +1,32 @@
-// default css
-import './index.css';
-import '@babylonjs/inspector';
+//required
+import "./index.css";
+import "@babylonjs/inspector";
+import { Engine } from "@babylonjs/core/Engines/engine";
 
-// use modern es6 import for tree shaking
-import { Engine } from '@babylonjs/core/Engines/engine';
-import { Scene } from '@babylonjs/core/scene';
-import { Vector3 } from '@babylonjs/core/Maths/math';
-import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
-import { Mesh } from '@babylonjs/core/Meshes/mesh';
-import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
-import { MeshBuilder } from '@babylonjs/core/Meshes/meshBuilder';
-import { StandardMaterial } from '@babylonjs/core/Materials/standardMaterial';
+//custom
+import init_scene from "./components/init_scene";
 
-// create canvas
-const canvas = document.createElement('canvas');
-canvas.id = 'renderCanvas';
-canvas.width = 1280;
-canvas.height = 720;
+//create canvas and set resolution
+const canvas = document.createElement("canvas");
+canvas.width = 2560;
+canvas.height = 1440;
+document.getElementsByTagName("body")[0].appendChild(canvas);
 
-// append body
-const body = document.getElementsByTagName('body')[0];
-body.appendChild(canvas);
-
-// create scene
+//create engine
 const engine: Engine = new Engine(canvas, true);
 
-// babylon scene
-function createScene (): Scene {
-	const scene = new Scene(engine);
+//create a scene
+const scene = init_scene(engine, canvas);
+engine.runRenderLoop(() => scene.render());
 
-	const camera = new ArcRotateCamera('Camera', Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
-	camera.attachControl(canvas, true);
+//resize the engine initially or when the screen resizes.
+engine.resize();
+window.addEventListener('resize', () => engine.resize());
 
-	const light = new HemisphericLight('light1', new Vector3(1, 1, 0), scene);
-
-	const sphere: Mesh = MeshBuilder.CreateSphere('sphere', { diameter: 1 }, scene);
-	sphere.material = new StandardMaterial('mat', scene);
-
-	return scene;
-}
-
-// start render loop
-const defaultScene = createScene();
-
-engine.runRenderLoop(() => {
-	defaultScene.render();
-});
-
-// debug panel
-defaultScene.debugLayer.show({
-	overlay: true,
-	embedMode: true
-});
+//displays the inspector. Useful for testing and tinkering.
+/*
+	scene.debugLayer.show({
+		overlay: true,
+		embedMode: true
+	});
+*/

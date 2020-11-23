@@ -1,7 +1,6 @@
 # BabylonJS Template
 
-Really simple and ready to develop game with **BabylonJS** template
-
+# A modification of kefniark's babylon template. (https://github.com/kefniark/babylon-typescript-template)
 Pull the code and directly work in the `./src` folder
 
 **Demo** : https://kefniark.github.io/babylon-typescript-template/dist/
@@ -12,14 +11,11 @@ Pull the code and directly work in the `./src` folder
 
 * BabylonJS
 * Typescript
-* TSLint
 * Webpack
-* CSS
 
 Export is configured as:
-* Fix ratio 16:9 (720p)
-* Automatic scaling with black border
-* Developer Inspector enabled
+* Fixed ratio
+* Optional developer Inspector
 * ES6 (tree shaking + code splitting)
 
 ---
@@ -36,7 +32,7 @@ npm install
 ```
 npm run dev
 ```
- - this will start a dev server on http://localhost:8080
+ - this will start a dev server on http://localhost:8080 (Port may vary, read your console output)
 
 ### Build
 ```
@@ -45,15 +41,3 @@ npm run build
  - this will compile the game into the `./dist/` folder
 you can test it with `npm run local-server`
  - this will expose the build folder on http://localhost/
-
-### Linting
-```
-npm run lint
-```
- - its recommended to use https://marketplace.visualstudio.com/items?itemName=eg2.tslint
-
----
-
-## Screenshot
-
-![Screenshot](./demo.jpg)
