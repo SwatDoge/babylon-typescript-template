@@ -12,7 +12,7 @@ export default function init_scene(engine, canvas): Scene {
 	const scene = new Scene(engine);
 
     //set a camera
-	const camera = new ArcRotateCamera("Camera", Math.PI / 2, Math.PI / 2, 2, Vector3.Zero(), scene);
+	const camera = new ArcRotateCamera("Camera", (Math.PI / 4), (Math.PI / 4), 5, Vector3.Zero(), scene);
 	camera.attachControl(canvas, true);
 
     //set a light
