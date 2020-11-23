@@ -1,9 +1,14 @@
 # BabylonJS Template
 
-# A modification of kefniark's babylon template. (https://github.com/kefniark/babylon-typescript-template)
-Pull the code and directly work in the `./src` folder
+### A modification of kefniark's babylon template. (https://github.com/kefniark/babylon-typescript-template)
 
-**Demo** : https://kefniark.github.io/babylon-typescript-template/dist/
+**See his demo here** : https://kefniark.github.io/babylon-typescript-template/dist/
+
+Template modifications by me:
+- Put stuff in seperate files
+- Changed code syntax to my preferences
+- Removed linter
+- Added my own comments
 
 ---
 
